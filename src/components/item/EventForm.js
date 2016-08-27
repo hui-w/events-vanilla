@@ -70,7 +70,7 @@ export default class EventForm extends Component {
 
 	handleTextChange(e) {
 		const newItem = update(this.state.item, {
-			[e.target.getAttribute('name')]: { $set: e.target.value.trim() }
+			[e.target.getAttribute('name')]: { $set: e.target.value }
 		});
 		this.setState({
 			item: newItem,
