@@ -185,7 +185,7 @@ CalendarView.propTypes = {
 	activeYear: PropTypes.number,
 	activeMonth: PropTypes.number,
 	activeDate: PropTypes.number,
-	previousView: PropTypes.string,
+	previousView: PropTypes.object,
 	location: PropTypes.object,
 	dispatch: PropTypes.func,
 	params: PropTypes.object

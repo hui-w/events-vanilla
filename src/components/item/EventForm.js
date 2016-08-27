@@ -69,11 +69,6 @@ export default class EventForm extends Component {
 	}
 
 	handleTextChange(e) {
-		if (this.props.loading) {
-			// disable form when it's still being loading
-			return;
-		}
-
 		const newItem = update(this.state.item, {
 			[e.target.getAttribute('name')]: { $set: e.target.value.trim() }
 		});
@@ -243,7 +238,6 @@ EventForm.propTypes = {
 	tags: PropTypes.array.isRequired,
 	item: PropTypes.object.isRequired,
 	changing: PropTypes.bool.isRequired,
-	loading: PropTypes.bool.isRequired,
 	onSubmit: PropTypes.func.isRequired,
 	onCancel: PropTypes.func.isRequired
 };

@@ -192,7 +192,7 @@ ItemView.propTypes = {
 	activeYear: PropTypes.number,
 	activeMonth: PropTypes.number,
 	activeDate: PropTypes.number,
-	previousView: PropTypes.string,
+	previousView: PropTypes.object,
 	params: PropTypes.object,
 	dispatch: PropTypes.func
 };
