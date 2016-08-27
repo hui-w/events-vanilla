@@ -83,7 +83,7 @@ class FilterBox extends Component {
 					<div className="filter-item">
 					{
 						Config.FlagColors.map((color, index) => {
-							let className = arrayIndexOf(this.state.filters.flags, index) > -1 ?
+							const className = arrayIndexOf(this.state.filters.flags, index) > -1 ?
 								'flag-radio-item flag-radio-selected' : 'flag-radio-item';
 							return (
 								<div className="flag-item-wrapper" key={index} onClick={() => this.onItemChange('flags', index)}>
@@ -98,7 +98,7 @@ class FilterBox extends Component {
 					</div>
 					{
 						tags.map((tag, index) => {
-							let className = arrayIndexOf(this.state.filters.tags, tag) > -1 ? 'icon-checked' : 'icon-unchecked';
+							const className = arrayIndexOf(this.state.filters.tags, tag) > -1 ? 'icon-checked' : 'icon-unchecked';
 							return (
 								<div
 									className="filter-item tag-item-wrapper" key={index}

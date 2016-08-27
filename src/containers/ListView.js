@@ -86,7 +86,7 @@ class ListView extends Component {
 		}
 
 		// the list of year links
-		let yearListDOM = years && years.length > 0 ? (<div>
+		const yearListDOM = years && years.length > 0 ? (<div>
 				Years: {' '}
 				{years.map(year =>
 					<span key={year}>

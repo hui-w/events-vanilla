@@ -5,12 +5,12 @@ import '../../styles/event-row.css';
 
 const EventRow = ({ year, month, date, item, onItemClick }) => {
 	// event number
-	let numberDOM = item.number !== 0 ? <div className="event-number">
+	const numberDOM = item.number !== 0 ? <div className="event-number">
 		{ item.number }
 	</div> : ' ';
 
 	// event tag
-	let tagDOM = item.tag.length > 0 && <span>
+	const tagDOM = item.tag.length > 0 && <span>
 		{' '} | <span className="key">Tag:</span> <span className="value">{item.tag}</span>
 	</span>;
 

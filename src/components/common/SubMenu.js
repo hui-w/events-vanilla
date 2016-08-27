@@ -6,7 +6,7 @@ import '../../styles/sub-menu.css';
 export default function SubMenu({ previousView, children }) {
 	let submenu;
 	if (children || previousView) {
-		let backButton = previousView && !isEmpty(previousView) &&
+		const backButton = previousView && !isEmpty(previousView) &&
 			<div className="back-button">
 				<Link to={{ pathname: previousView.url }} className="link-button">Back to {previousView.title}</Link>
 			</div>;

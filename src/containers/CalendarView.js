@@ -112,7 +112,7 @@ class CalendarView extends Component {
 	}
 
 	render() {
-		let {
+		const {
 			events,
 			years,
 			months,
@@ -122,7 +122,7 @@ class CalendarView extends Component {
 		} = this.props;
 
 		// calendar selector
-		let calendarSelector = (!this.state.loading &&
+		const calendarSelector = (!this.state.loading &&
 			<CalendarSelector
 				years={years} months={months}
 				activeYear={activeYear} activeMonth={activeMonth} activeDate={activeDate}
@@ -131,7 +131,7 @@ class CalendarView extends Component {
 		);
 
 		// year month nav
-		let calendarNavigator = (
+		const calendarNavigator = (
 			<CalendarNavigator
 				activeYear={activeYear} activeMonth={activeMonth}
 				onMonthShift={(value) => this.shiftMonth(value)}
@@ -139,7 +139,7 @@ class CalendarView extends Component {
 		);
 
 		// calendar body
-		let calendarMonth = (
+		const calendarMonth = (
 			<CalendarMonth
 				year={activeYear} month={activeMonth} date={activeDate}
 				events={events}
@@ -153,7 +153,7 @@ class CalendarView extends Component {
 		} else {
 			selectedEvents = events.sort((a, b) => a.date - b.date);
 		}
-		let calendarList = (
+		const calendarList = (
 			<CalendarList
 				events={selectedEvents} onItemClick={(id) => this.onItemClick(id)}
 			/>

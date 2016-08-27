@@ -21,7 +21,7 @@ class YearSelect extends Component {
 		const yearList = this.props.yearList;
 
 		// select options
-		let options = yearList.map(year => (<option key={year}>{year}</option>));
+		const options = yearList.map(year => (<option key={year}>{year}</option>));
 
 		return (
 			<select

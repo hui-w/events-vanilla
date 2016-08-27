@@ -6,7 +6,7 @@ const DateBox = ({ year, month, item, onItemClick }) => {
 	const eventList = item.events;
 
 	// the list of daily events
-	let eventListDOM = eventList.map((eventItem, index) =>
+	const eventListDOM = eventList.map((eventItem, index) =>
 		<EventRow
 			key={index}
 			year={year}

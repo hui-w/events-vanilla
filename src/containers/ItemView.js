@@ -125,7 +125,7 @@ class ItemView extends Component {
 			activeDate,
 			previousView
 		} = this.props;
-		let item = this.state.item;
+		const item = this.state.item;
 
 		let title;
 		let bodyDOM;

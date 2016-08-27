@@ -45,10 +45,10 @@ class CalendarSelector extends Component {
 		const thisDate = today.getDate();
 
 		// year list
-		let yearListDOM = (
+		const yearListDOM = (
 			<div className="year-list">
 				{years.map(year => {
-					let className = year === this.state.expandingYear ? 'year-item selected' : 'year-item';
+					const className = year === this.state.expandingYear ? 'year-item selected' : 'year-item';
 					return <div key={year} className={className} onClick={() => this.expandYear(year)}>{year}</div>;
 				})}
 				{!this.isToday() &&
@@ -62,7 +62,7 @@ class CalendarSelector extends Component {
 		if (this.state.expandingYear !== 0) {
 			expandingMonths = months.filter(list => list.year === this.state.expandingYear);
 		}
-		let monthListDOM = this.state.expandingYear !== 0 &&
+		const monthListDOM = this.state.expandingYear !== 0 &&
 			<div className="month-list clearfix no-select">
 				{expandingMonths.map(month =>
 					<div

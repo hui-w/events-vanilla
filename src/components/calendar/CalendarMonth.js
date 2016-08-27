@@ -117,7 +117,7 @@ export default class CalendarMonth extends Component {
 		} = this.props;
 		const data = this.prepareData(year, month, date, events);
 
-		let headerDOM = data.weekdays.map((weekday, index) => {
+		const headerDOM = data.weekdays.map((weekday, index) => {
 			if (index === 6 || index === 0) {
 				return <th key={index} className="header-weekend">{weekday}</th>;
 			}
@@ -125,7 +125,7 @@ export default class CalendarMonth extends Component {
 			return <th key={index} className="header-weekday">{weekday}</th>;
 		});
 
-		let bodyDOM = data.weeks.map((week, weekIndex) =>
+		const bodyDOM = data.weeks.map((week, weekIndex) =>
 			<tr key={weekIndex}>
 			{week.map((dateInfo, dateIndex) =>
 				<td key={dateIndex} className={dateIndex === 6 || dateIndex === 0 ? 'cell-weekend' : 'cell-weekday'}>

@@ -6,7 +6,7 @@ const MonthBox = ({ year, item, onItemClick }) => {
 	const dailyList = item.dates;
 
 	// the list of days of this month
-	let dailyListDOM = dailyList.map((dailyData, index) =>
+	const dailyListDOM = dailyList.map((dailyData, index) =>
 		<DateBox key={index} year={year} month={item.month} item={dailyData} onItemClick={onItemClick} />
 	);
 
