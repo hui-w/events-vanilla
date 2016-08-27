@@ -1,0 +1,20 @@
+.sub-menu {
+    line-height: 32px;
+    padding: 4px 8px;
+    border-bottom: 1px solid #E4E3E8;
+}
+
+.sub-menu .back-button {
+    padding-right: 10px;
+    float: left;
+}
+
+.sub-menu .children {
+    padding-left: 10px;
+}
+
+.sub-menu .right {
+    float: right;
+    padding: 0px 0px;
+    line-height: 32px;
+}

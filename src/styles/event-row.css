@@ -1,0 +1,58 @@
+.event-row {
+    color: #000;
+    background-color: #fff;
+    border-left: 1px solid #00538E;
+    margin: 20px 0px 0px 0px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.event-row .event-row-1 {
+    min-height: 24px;
+}
+
+.event-row .event-row-1 .event-text {
+    line-height: 24px;
+    display: inline;
+    margin-left: 8px;
+    word-break: break-all;
+}
+
+.event-row .event-row-1 .event-number {
+    line-height: 24px;
+    font-size: 80%;
+    display: inline;
+    margin-left: 10px;
+    color: #4686B0;
+}
+
+.event-row .event-row-1 .event-number:before {
+    content: "(";
+}
+
+.event-row .event-row-1 .event-number:after {
+    content: ")";
+}
+
+.event-row .event-row-2 {
+    min-height: 24px;
+}
+
+.event-row .event-row-2 .event-subline {
+    line-height: 24px;
+    font-size: 80%;
+    color: #A8A8A8;
+    clear: both;
+}
+
+.event-row .event-row-2 .event-subline .key {
+    font-style: italic;
+}
+
+.event-row .event-row-2 .event-subline .value {}
+
+.event-row .event-row-2 .event-tool {
+    line-height: 24px;
+    font-size: 80%;
+    text-align: right;
+}

@@ -1,0 +1,51 @@
+.header {
+    background-color: #404040;
+    color: #fff;
+    height: 48px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+.header .menu {
+    line-height: 48px;
+    float: left;
+    margin-left: 8px;
+}
+
+.header .menu a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0px 10px 0px 0px;
+    font-size: 16px;
+    text-anchor: bottom;
+}
+
+.header .menu .active-item {
+    /* float: left; */
+    font-size: 16px;
+    cursor: default;
+    border-bottom: 1px dotted #FFF;
+}
+
+.header .right {
+    float: right;
+    padding-top: 10px;
+    margin-right: 8px;
+}
+
+.header .right .svg-btn {
+    margin-left: 10px;
+    display: inline;
+}
+
+.header .right .svg-btn svg{
+    cursor: pointer;
+}
+
+.header-toolbar {
+    float: right;
+    padding: 0px 10px;
+    line-height: 48px;
+    margin: -50px 0px 0px 0px;
+}

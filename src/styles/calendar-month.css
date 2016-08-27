@@ -1,0 +1,64 @@
+/* calendar-month */
+
+.calendar-month {
+    padding: 0px 8px;
+    margin: 0px 0px 10px 0px;
+}
+
+.calendar-month table {
+    border-left: 1px solid #999;
+    border-top: 1px solid #999;
+}
+
+.calendar-month td,
+.calendar-month th {
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
+.calendar-month th {
+    background-color: #eee;
+    padding: 4px;
+}
+
+.calendar-month td {
+    padding: 1px;
+}
+
+.calendar-month .header-weekday {
+    width: 14%;
+}
+
+.calendar-month .header-weekend {
+    width: 15%;
+}
+
+.calendar-month td.cell-weekday {}
+
+.calendar-month td.cell-weekend {
+    font-weight: bold;
+}
+
+.calendar-month div.date-info {
+    padding: 2px;
+    cursor: pointer;
+}
+
+.calendar-month div.date-info-selected {
+    background-color: #FFEB3C;
+}
+
+.calendar-month .cell-date {}
+
+.calendar-month .cell-pins {
+    height: 10px;
+    overflow: hidden;
+}
+
+.calendar-month .cell-pins .cell-pin {
+    width: 8px;
+    height: 8px;
+    border: 1px solid black;
+    float: right;
+    margin: 0px 1px 1px 0px;
+}

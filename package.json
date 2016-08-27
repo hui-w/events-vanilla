@@ -1,0 +1,48 @@
+{
+  "name": "events-vanilla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "repository": "#",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "webpack --progress --watch -p",
+    "build": "webpack --config webpack_prod.config.js --progress -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hui Wang",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.0.15",
+    "babel-core": "^6.4.5",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-1": "^6.3.13",
+    "css-loader": "^0.23.1",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^6.0.0",
+    "react-hot-loader": "^1.3.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "moment": "^2.14.1",
+    "react": "^15.2.0",
+    "react-datepicker": "^0.28.0",
+    "react-dom": "^15.2.0",
+    "react-redux": "^4.3.0",
+    "react-router": "^2.0.0",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.2.1",
+    "redux-thunk": "^2.1.0",
+    "superagent": "^2.0.0"
+  }
+}

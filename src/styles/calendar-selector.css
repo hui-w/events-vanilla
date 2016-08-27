@@ -1,0 +1,42 @@
+/* calendar-selector */
+
+.calendar-selector {}
+
+.calendar-selector .year-list {
+    line-height: 32px;
+    padding: 0px;
+}
+
+.calendar-selector .year-list .year-item {
+    float: left;
+    margin: 0px 10px 0px 0px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.calendar-selector .year-list .selected {
+    font-weight: bold;
+}
+
+.calendar-selector .month-list {
+    line-height: 32px;
+    padding: 0px 10px;
+    position: absolute;
+    background-color: #EEEEEE;
+    border: 1px solid #000;
+    color: #666;
+    border-radius: 4px;
+    margin: 0px;
+    font-size: 14px;
+}
+
+.calendar-selector .month-list .month-item {
+    float: left;
+    margin: 0px 10px 0px 0px;
+    cursor: pointer;
+}
+
+.calendar-selector .year-list .today-button {
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -1,0 +1,75 @@
+.event-form {
+    padding: 20px 0px 0px 0px;
+}
+
+.event-form .form-row {
+    padding: 0px 8px 20px 8px;
+}
+
+.event-form .form-row:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.event-form .form-row .field-label {
+    /*
+    width: 90px;
+    text-align: right;
+    float: left;
+    */
+    padding: 4px 0px;
+    color: #666;
+}
+
+.event-form .form-row .field-control {
+    /*
+    margin-left: 90px;
+    padding: 0px 0px 0px 10px;
+    */
+}
+
+.event-form .form-row input.form-control {
+    padding: 6px 4px;
+}
+
+.event-form .form-row textarea.form-control {
+    padding: 4px;
+}
+
+.event-form .form-row .date-picker {
+    width: 198px;
+}
+
+.event-form .form-row .button {
+    margin-right: 14px;
+}
+
+.event-form .form-row .form-control {
+    border: 1px solid #404040;
+}
+
+
+/* tag-list */
+
+.tag-list {
+    padding: 4px 0px 0px 0px;
+}
+
+.tag-list .tag-item-wrapper {
+    height: 24px;
+    float: left;
+}
+
+.tag-list .tag-item {
+    border: 1px solid #469DCD;
+    color: #FFF;
+    background-color: #469DCD;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0px 2px;
+    padding: 2px 6px;
+    font-size: 80%;
+}

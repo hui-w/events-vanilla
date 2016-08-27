@@ -1,0 +1,43 @@
+.list-view {}
+
+.year-select {
+    width: 80px;
+    height: 28px;
+    line-height: 24px;
+}
+
+.year-list {
+    padding: 4px 8px;
+}
+
+.list-view .month-box {
+    color: #535352;
+    background-color: #F1F0F5;
+}
+
+.list-view .month-box .month-title {
+    background-color: #E4E3E8;
+    color: #666;
+    padding: 0px 8px;
+    line-height: 48px;
+    font-weight: bold;
+}
+
+.list-view .month-box .date-list {
+    padding: 0px 8px 20px 8px;
+}
+
+
+/* daily events */
+
+.date-box {}
+
+.date-box .date-title {
+    float: left;
+    width: 30px;
+    text-align: right;
+}
+
+.date-box .event-list {
+    margin-left: 40px;
+}

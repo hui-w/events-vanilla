@@ -1,0 +1,101 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Varela Round","Helvetica Neue","Helvetica","Roboto","Arial",sans-serif;
+    width: 100%;
+    min-width: 320px;
+}
+
+body{
+    overflow-y: scroll;
+}
+
+.no-select {
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.clearfix:after {
+    content: "020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+a {
+    color: #00f;
+}
+
+a.link-button {
+    color: #666;
+    background-color: #EEEEEE;
+    border: 1px solid #666;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.button {
+    color: #666;
+    background-color: #EEEEEE;
+    border: 1px solid #666;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 4px 14px;
+}
+
+.main {
+    clear: both;
+    padding: 48px 0px;
+}
+
+.footer {
+    background-color: #404040;
+    color: #fff;
+    line-height: 48px;
+    border-top: 1px solid #F1F0F5;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.footer .copyright {
+    font-size: 80%;
+    margin-left: 8px;
+}
+
+.loading {
+    padding: 20px 10px;
+}
+
+.dev-tool {
+    position: fixed;
+    bottom: 4px;
+    right: 4px;
+    background-color: #404040;
+    border-radius: 4px;
+}
+
+.dev-tool span {
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 8px;
+}
+
+/* to fix the issue that the datepicker overlays the filterbox */
+.react-datepicker__input-container {
+    position: inherit !important;
+}

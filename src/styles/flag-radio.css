@@ -1,0 +1,21 @@
+/* flag-radio */
+
+.flag-radio {}
+
+.flag-radio .flag-item-wrapper {
+    width: 36px;
+    height: 36px;
+    float: left;
+}
+
+.flag-radio .flag-radio-item {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #CCC;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.flag-radio .flag-radio-selected {
+    border: 2px solid black;
+}

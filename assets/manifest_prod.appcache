@@ -1,0 +1,6 @@
+CACHE MANIFEST
+#version 2016.08.02
+CACHE:
+    /assets/bundle.js
+NETWORK:
+    *

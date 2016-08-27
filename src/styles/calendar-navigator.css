@@ -1,0 +1,32 @@
+.calendar-navigator {
+    line-height: 38px;
+    padding: 0px 8px;
+    text-align: center;
+}
+
+.calendar-navigator .previous-month {
+    float: left;
+}
+
+.calendar-navigator .current-month {
+    display: inline;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.calendar-navigator .next-month {
+    float: right;
+}
+
+.calendar-navigator .month-navi-button {
+    cursor: pointer;
+    color: #666;
+    background-color: #EEEEEE;
+    border: 1px solid #666;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 0px 12px;
+    margin: 4px 0px;
+    line-height: 24px;
+    cursor: pointer;
+}

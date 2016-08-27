@@ -1,0 +1,22 @@
+/* recurrence-radio */
+
+.recurrence-radio {}
+
+.recurrence-radio .recurrence-item-wrapper {
+    height: 38px;
+    float: left;
+}
+
+.recurrence-radio .recurrence-radio-item {
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0px 2px;
+    padding: 4px 15px;
+}
+
+.recurrence-radio .recurrence-radio-selected {
+    border: 1px solid black;
+    color: #fff;
+    background-color: #404040;
+}

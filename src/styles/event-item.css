@@ -1,0 +1,65 @@
+.event-item {
+    padding: 20px 0px 0px 0px;
+    background-color: #F1F0F5;
+}
+
+.event-item .item-row {
+    padding: 0px 10px 20px 10px;
+}
+
+.event-item .item-row .button {
+    padding: 4px 14px;
+    margin-right: 14px;
+}
+
+.event-item .item-row .event-text {
+    line-height: 24px;
+    background-color: #FFFFFF;
+    padding: 6px 10px;
+    border-left: 1px solid #00538E;
+    border-radius: 0px 4px 4px 0px;
+    word-break: break-all;
+}
+
+.event-item .item-row .event-date {
+    margin: 0px 0px 0px 30px;
+    line-height: 24px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.event-item .item-row .event-number {
+    line-height: 24px;
+    font-size: 80%;
+    display: inline;
+    margin-left: 10px;
+    color: #4686B0;
+}
+
+.event-item .item-row .event-number:before {
+    content: "(";
+}
+
+.event-item .item-row .event-number:after {
+    content: ")";
+}
+
+.event-item .item-row .key {
+    font-style: italic;
+    font-size: 80%;
+}
+
+.event-item .item-row .value {
+    border: 1px solid #469DCD;
+    color: #FFF;
+    background-color: #469DCD;
+    border-radius: 4px;
+    margin: 0px 2px;
+    padding: 2px 6px;
+    font-size: 80%;
+}
+
+.event-item .item-row .update-time {
+    font-size: 80%;
+    font-style: italic;
+    text-align: right;
+}
