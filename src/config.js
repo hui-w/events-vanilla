@@ -1,6 +1,6 @@
 const Config = {
 	ApiUrl: process.env.NODE_ENV === 'development' ?
-		'http://events-vanilla.qlike.com/api' :
+		'http://events-vanilla.app.qlike.com/api' :
 		'/api',
 	FlagColors: process.env.NODE_ENV === 'development' ?
 		['#666666', '#999999', '#CCCCCC', '#FFFFFF'] :
