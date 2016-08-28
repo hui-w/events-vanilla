@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
 import update from 'react/lib/update';
 
 import BusyIcon from '../../components/common/BusyIcon';
@@ -167,19 +165,40 @@ export default class EventForm extends Component {
 			);
 		}
 
-		// the initial value for data input: today or selected date
-		let initialDate = moment(`${item.year}-${item.month}-${item.date}`, 'YYYY-M-D');
-
 		return (
 			<div className="event-form">
 				<div className="form-row">
-					<DatePicker
-						className="form-control date-picker"
-						dateFormat="YYYY-MM-DD"
-						todayButton={'Today'}
-						selected={initialDate}
-						onChange={this.handleDateChange} readonly
+					<input
+						name="year"
+						value={item.year}
+						type="number"
+						min="1983" max="2083"
+						className="form-control"
+						style={{ width: '60px' }}
+						onChange={this.handleTextChange}
 					/>
+					-
+					<input
+						name="month"
+						value={item.month}
+						type="number"
+						min="1" max="12"
+						className="form-control"
+						style={{ width: '40px' }}
+						onChange={this.handleTextChange}
+					/>
+					-
+					<input
+						name="date"
+						value={item.date}
+						type="number"
+						min="1" max="31"
+						className="form-control"
+						style={{ width: '40px' }}
+						onChange={this.handleTextChange}
+					/>
+					{' '}
+					(YYYY-M-D)
 				</div>
 				<div className="form-row">
 					<textarea

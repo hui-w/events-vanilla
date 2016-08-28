@@ -36,7 +36,6 @@
   "dependencies": {
     "moment": "^2.14.1",
     "react": "^15.2.0",
-    "react-datepicker": "^0.28.0",
     "react-dom": "^15.2.0",
     "react-redux": "^4.3.0",
     "react-router": "^2.0.0",

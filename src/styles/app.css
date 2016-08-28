@@ -94,8 +94,3 @@ a.link-button {
     font-size: 10px;
     padding: 2px 8px;
 }
-
-/* to fix the issue that the datepicker overlays the filterbox */
-.react-datepicker__input-container {
-    position: inherit !important;
-}
