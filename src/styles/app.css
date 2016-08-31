@@ -70,6 +70,7 @@ a.link-button {
     position: fixed;
     bottom: 0px;
     width: 100%;
+    min-width: 320px;
 }
 
 .footer .copyright {

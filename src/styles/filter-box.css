@@ -8,6 +8,8 @@
     z-index: 999;
     border-radius: 4px;
     min-width: 200px;
+    max-height: 50vh;
+    overflow-y: auto;
 }
 
 .filter-box .filter-box-header {

@@ -5,6 +5,7 @@
     position: fixed;
     top: 0px;
     width: 100%;
+    min-width: 320px;
 }
 
 .header .menu {
