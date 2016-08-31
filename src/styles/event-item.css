@@ -1,6 +1,6 @@
 .event-item {
     padding: 20px 0px 0px 0px;
-    background-color: #F1F0F5;
+    /* background-color: #F1F0F5; */
 }
 
 .event-item .item-row {
@@ -19,6 +19,7 @@
     border-left: 1px solid #00538E;
     border-radius: 0px 4px 4px 0px;
     word-break: break-all;
+    min-height: 150px;
 }
 
 .event-item .item-row .event-date {
