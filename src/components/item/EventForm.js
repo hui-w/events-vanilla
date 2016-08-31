@@ -235,7 +235,7 @@ export default class EventForm extends Component {
 						<FlagRadio selectedIndex={item.flag} onChange={this.handleFlagChange} />
 					</div>
 				</div>
-				<div className="form-row">
+				<div className="form-row" style={{display: "none"}}>
 					<div className="field-label">Recurrence</div>
 					<div className="field-control">
 						<RecurrenceRadio selectedIndex={item.recurrence} onChange={this.handleRecurrenceChange} />
