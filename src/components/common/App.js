@@ -9,6 +9,7 @@ export default function App({ children }) {
 			<Header>
 				<IndexLink to="/" activeClassName="active-item">Home</IndexLink>
 				<Link to="/calendar" activeClassName="active-item">Calendar</Link>
+				<Link to="/search" activeClassName="active-item">Search</Link>
 				{/* <Link to="/settings" activeClassName="active-item">Settings</Link> */}
 			</Header>
 			<div className="main">{children}</div>

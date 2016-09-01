@@ -8,7 +8,7 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
 import * as reducers from './reducers';
 import { App } from './components';
-import { ListView, CalendarView, ItemView, SettingsView } from './containers';
+import { ListView, CalendarView, SearchView, ItemView, SettingsView } from './containers';
 
 const middleware = [thunk];
 
@@ -38,6 +38,7 @@ ReactDOM.render(
 					<Route path="event" component={ItemView}>
 						<Route path=":id" component={ItemView} />
 					</Route>
+					<Route path="search" component={SearchView} />
 					<Route path="settings" component={SettingsView} />
 				</Route>
 			</Router>
