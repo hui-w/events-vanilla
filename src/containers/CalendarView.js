@@ -151,7 +151,7 @@ class CalendarView extends Component {
 		if (activeDate > 0) {
 			selectedEvents = events.filter(item => item.date === activeDate);
 		} else {
-			selectedEvents = events.sort((a, b) => a.date - b.date);
+			selectedEvents = events.sort((a, b) => b.date - a.date);
 		}
 		const calendarList = (
 			<CalendarList
