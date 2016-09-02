@@ -3,28 +3,28 @@ import { connect } from 'react-redux';
 import { search, clearSearch } from '../actions/search';
 
 class SearchView extends Component {
-	componentDidMount() {
-		this.props.dispatch(search());
-	}
+  componentDidMount() {
+    this.props.dispatch(search());
+  }
 
-	componentWillUnmount() {
-		this.props.dispatch(clearSearch());
-	}
+  componentWillUnmount() {
+    this.props.dispatch(clearSearch());
+  }
 
-	render() {
-		return <div style={{ margin: '10px' }}>Search Page</div>;
-	}
+  render() {
+    return <div style={{ margin: '10px' }}>Search Page</div>;
+  }
 }
 
 SearchView.propTypes = {
-	dispatch: PropTypes.func
+  dispatch: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
-	const searchResults = state.search.results;
-	return { searchResults };
+  const searchResults = state.search.results;
+  return { searchResults };
 };
 
 export default connect(
-	mapStateToProps
+  mapStateToProps
 )(SearchView);
