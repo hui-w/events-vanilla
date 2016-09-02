@@ -3,7 +3,8 @@ import update from 'react/lib/update';
 import {
   ANNUAL_DATA_LOAD,
   ACTIVE_SET,
-  ANNUAL_DATA_UNLOAD
+  ANNUAL_DATA_UNLOAD,
+  SEARCH_RESULT_LOAD
 } from '../actions/events';
 
 const initialState = {
@@ -13,12 +14,13 @@ const initialState = {
   years: [],
   months: [],
   annualEvents: {},
-  tags: []
+  tags: [],
+  searchKeyword: '',
+  searchResults: []
 };
 
 const handlers = {
   [ACTIVE_SET]: (state, action) => ({
-    ...state,
     activeYear: action.year,
     activeMonth: action.month,
     activeDate: action.date
@@ -46,6 +48,10 @@ const handlers = {
   },
   [ANNUAL_DATA_UNLOAD]: () => ({
     ...initialState
+  }),
+  [SEARCH_RESULT_LOAD]: (state, action) => ({
+    searchKeyword: action.keyword,
+    searchResults: action.payload
   })
 };
 

@@ -33,6 +33,27 @@ export default {
     };
   },
 
+  searchEvents(keyword, callback) {
+    const path = `${Config.ApiUrl}/events/search/${keyword}`;
+
+    const endHandler = (err, res) => {
+      if (err || !res.ok) {
+        console.error(`searchEvents error ${err}`);
+      } else if (typeof callback === 'function') {
+        const returnObj = JSON.parse(res.text);
+        callback(returnObj.payload);
+      }
+    };
+
+    return () => {
+      request
+        .get(path)
+        .set('Accept', 'application/json')
+        .set('Content-Type', 'application/json')
+        .end(endHandler);
+    };
+  },
+
   getTags(callback) {
     const path = `${Config.ApiUrl}/events/tags`;
 

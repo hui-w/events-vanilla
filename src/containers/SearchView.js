@@ -1,28 +1,35 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { search, clearSearch } from '../actions/search';
+import { search } from '../actions/events';
 
 class SearchView extends Component {
   componentDidMount() {
-    this.props.dispatch(search());
-  }
-
-  componentWillUnmount() {
-    this.props.dispatch(clearSearch());
+    this.props.dispatch(search('pay'));
   }
 
   render() {
-    return <div style={{ margin: '10px' }}>Search Page</div>;
+    const {
+      keyword,
+      results
+    } = this.props;
+    console.log(results);
+    return <div style={{ margin: '10px' }}>{keyword} </div>;
   }
 }
 
 SearchView.propTypes = {
+  keyword: PropTypes.string,
+  results: PropTypes.array,
   dispatch: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
-  const searchResults = state.search.results;
-  return { searchResults };
+  const keyword = state.events.searchKeyword;
+  const results = state.events.searchResults;
+  return {
+    keyword,
+    results
+  };
 };
 
 export default connect(

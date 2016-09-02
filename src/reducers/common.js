@@ -20,22 +20,18 @@ const handlers = {
     ...state
   }),
   [PREVIOUS_VIEW_UPDATE]: (state, action) => ({
-    ...state,
     previousView: {
       title: action.title,
       url: action.url
     }
   }),
-  [PREVIOUS_VIEW_RESET]: (state) => ({
-    ...state,
+  [PREVIOUS_VIEW_RESET]: () => ({
     previousView: {}
   }),
   [FILTERS_UPDATE]: (state, action) => ({
-    ...state,
     filters: action.filters
   }),
-  [FILTERS_RESET]: (state) => ({
-    ...state,
+  [FILTERS_RESET]: () => ({
     filters: {
       flags: [],
       tags: []

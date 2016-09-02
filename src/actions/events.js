@@ -3,6 +3,7 @@ import api from '../api';
 export const ANNUAL_DATA_LOAD = 'ANNUAL_DATA_LOAD';
 export const ANNUAL_DATA_UNLOAD = 'ANNUAL_DATA_UNLOAD';
 export const ACTIVE_SET = 'ACTIVE_SET';
+export const SEARCH_RESULT_LOAD = 'SEARCH_RESULT_LOAD';
 
 function receiveAnnualData(year, payload) {
   return {
@@ -48,5 +49,23 @@ export function unloadAnnualData() {
     dispatch({
       type: ANNUAL_DATA_UNLOAD
     });
+  };
+}
+
+function receiveSearchResult(keyword, payload) {
+  return {
+    type: SEARCH_RESULT_LOAD,
+    keyword,
+    payload
+  };
+}
+
+export function search(keyword) {
+  return (dispatch) => {
+    const callback = (payload) => {
+      // save the search result into the store
+      dispatch(receiveSearchResult(keyword, payload));
+    };
+    dispatch(api.searchEvents(keyword, callback));
   };
 }

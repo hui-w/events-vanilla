@@ -23,7 +23,6 @@ const initialState = {
 
 const handlers = {
   [EVENT_ITEM_LOAD]: (state, action) => ({
-    ...state,
     item: action.item
   }),
 
@@ -32,13 +31,11 @@ const handlers = {
   }),
 
   [EVENT_ITEM_CREATE]: (state, action) => ({
-    ...state,
     item: { ...action.item },
     message: 'Item created'
   }),
 
   [EVENT_ITEM_UPDATE]: (state, action) => ({
-    ...state,
     item: { ...action.item },
     message: 'Item updated'
   })
