@@ -23,6 +23,10 @@ module.exports = {
     })
   ],
 
+  eslint: {
+    configFile: './.eslintrc'
+  },
+
   module: {
     loaders: [{
       test: /(\.jsx|\.js)$/,
@@ -31,6 +35,10 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: "style!css"
+    }, {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loaders: ['babel-loader', 'eslint-loader']
     }]
   }
 };

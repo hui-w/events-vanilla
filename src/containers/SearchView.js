@@ -1,11 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import { search } from '../actions/events';
+import SearchForm from '../components/search/SearchForm';
+import SearchResults from '../components/search/SearchResults';
 
 class SearchView extends Component {
   componentDidMount() {
     this.props.dispatch(search('pay'));
   }
+
+  onSearch = (keyword) => {
+    browserHistory.push(`/search/${keyword}`);
+  };
 
   render() {
     const {
@@ -13,7 +20,12 @@ class SearchView extends Component {
       results
     } = this.props;
     console.log(results);
-    return <div style={{ margin: '10px' }}>{keyword} </div>;
+    return (
+      <div className="search-view">
+        <SearchForm keyword={keyword} onSearch={this.onSearch} />
+        <SearchResults results={results} />
+      </div>
+    );
   }
 }
 

@@ -38,7 +38,9 @@ ReactDOM.render(
           <Route path="event" component={ItemView}>
             <Route path=":id" component={ItemView} />
           </Route>
-          <Route path="search" component={SearchView} />
+          <Route path="search" component={SearchView}>
+            <Route path=":keyword" component={ItemView} />
+          </Route>
           <Route path="settings" component={SettingsView} />
         </Route>
       </Router>
