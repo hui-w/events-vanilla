@@ -55,7 +55,6 @@ export function unloadAnnualData() {
 function receiveSearchResult(keyword, payload) {
   return {
     type: SEARCH_RESULT_LOAD,
-    keyword,
     payload
   };
 }
@@ -64,7 +63,7 @@ export function search(keyword) {
   return (dispatch) => {
     const callback = (payload) => {
       // save the search result into the store
-      dispatch(receiveSearchResult(keyword, payload));
+      dispatch(receiveSearchResult(payload));
     };
     dispatch(api.searchEvents(keyword, callback));
   };

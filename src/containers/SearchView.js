@@ -7,7 +7,17 @@ import SearchResults from '../components/search/SearchResults';
 
 class SearchView extends Component {
   componentDidMount() {
-    this.props.dispatch(search('pay'));
+    const keyword = this.props.params.keyword;
+    console.log("componentDidMount", keyword);
+    this.props.dispatch(search(keyword));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.params !== nextProps.params) {
+      const keyword = nextProps.params.keyword;
+      console.log("componentWillReceiveProps", keyword);
+      this.props.dispatch(search(keyword));
+    }
   }
 
   onSearch = (keyword) => {
