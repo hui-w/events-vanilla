@@ -7,8 +7,15 @@ class SearchForm extends Component {
     super(props, context);
 
     this.state = {
-      keyword: ''
+      keyword: props.keyword ? props.keyword : ''
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const keyword = nextProps.keyword ? nextProps.keyword : '';
+    this.setState({
+      keyword
+    });
   }
 
   handleSubmit = (e) => {
@@ -37,6 +44,7 @@ class SearchForm extends Component {
 }
 
 SearchForm.propTypes = {
+  keyword: PropTypes.string,
   onSearch: PropTypes.func.isRequired
 };
 

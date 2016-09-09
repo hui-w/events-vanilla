@@ -52,7 +52,7 @@ export function unloadAnnualData() {
   };
 }
 
-function receiveSearchResult(keyword, payload) {
+function receiveSearchResult(payload) {
   return {
     type: SEARCH_RESULT_LOAD,
     payload
@@ -61,10 +61,18 @@ function receiveSearchResult(keyword, payload) {
 
 export function search(keyword) {
   return (dispatch) => {
+    // set the status as searching
+    dispatch(receiveSearchResult(null));
+
     const callback = (payload) => {
       // save the search result into the store
       dispatch(receiveSearchResult(payload));
     };
     dispatch(api.searchEvents(keyword, callback));
   };
+}
+
+export function clearSearch() {
+  // clear the search results
+  return receiveSearchResult([]);
 }
