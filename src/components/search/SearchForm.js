@@ -25,8 +25,9 @@ class SearchForm extends Component {
   };
 
   handleChange = (e) => {
+    const keyword = e.target.value.substring(0,20);
     this.setState({
-      keyword: e.target.value
+      keyword
     });
   };
 
@@ -35,7 +36,11 @@ class SearchForm extends Component {
     return (
       <div className="search-form">
         <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.keyword} onChange={this.handleChange} />
+          <input
+            type="text"
+            value={this.state.keyword}
+            onChange={this.handleChange}
+          />
           <input type="submit" value="Search" />
         </form>
       </div>

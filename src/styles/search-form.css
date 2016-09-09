@@ -1,3 +1,15 @@
-.search-form {
-  
+/* search-form */
+
+.search-form {}
+
+.search-form input[type="text"] {
+    width: 180px;
+    padding: 4px 10px;
+    border: 1px solid #404040;
+}
+
+.search-form input[type="submit"] {
+    padding: 4px 10px;
+    border: 1px solid #404040;
+    margin-left: 2px;
 }
