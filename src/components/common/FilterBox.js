@@ -94,7 +94,7 @@ class FilterBox extends Component {
           }
           </div>
           <div className="group-header">
-            <span onClick={() => this.onGroupChange('flags')}>Tag</span>
+            <span onClick={() => this.onGroupChange('tags')}>Tag</span>
           </div>
           {
             tags.map((tag, index) => {

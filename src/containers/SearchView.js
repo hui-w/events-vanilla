@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 
 import { search, startSearch, clearSearch } from '../actions/events';
 import { updatePreviousView } from '../actions/common';
+import { filterList } from '../util';
 
 import SubMenu from '../components/common/SubMenu';
 import SearchForm from '../components/search/SearchForm';
@@ -69,7 +70,8 @@ SearchView.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const results = state.events.searchResults;
+  const allResults = state.events.searchResults;
+  const results = filterList(allResults, state.common.filters);
   return {
     results
   };
