@@ -7,7 +7,8 @@ class SearchForm extends Component {
     super(props, context);
 
     this.state = {
-      keyword: props.keyword ? props.keyword : ''
+      keyword: props.keyword ? props.keyword : '',
+      timer: -1
     };
   }
 
@@ -19,17 +20,40 @@ class SearchForm extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault();
+    if(e) {
+      e.preventDefault();
+    }
+
+    this.clearTimer();
+
+    // Execute searching
     const onSearch = this.props.onSearch;
     onSearch(this.state.keyword);
   };
 
   handleChange = (e) => {
     const keyword = e.target.value.substring(0,20);
+
+    this.clearTimer();
+    const timer = setTimeout(() => {
+      this.handleSubmit(null);
+    }, 2000);
+
     this.setState({
+      timer,
       keyword
     });
   };
+
+  clearTimer() {
+    // Clear the timeout if exists
+    if (this.state.timer > 0) {
+      clearTimeout(this.state.timer);
+      this.setState({
+        timer: -1
+      });
+    }
+  }
 
   render() {
     const onSearch = this.props.onSearch;
