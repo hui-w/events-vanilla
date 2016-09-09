@@ -5,6 +5,8 @@ import '../../styles/search-form.css';
 class SearchForm extends Component {
   constructor(props, context) {
     super(props, context);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       keyword: props.keyword ? props.keyword : '',
@@ -19,8 +21,8 @@ class SearchForm extends Component {
     });
   }
 
-  handleSubmit = (e) => {
-    if(e) {
+  handleSubmit(e) {
+    if (e) {
       e.preventDefault();
     }
 
@@ -29,10 +31,10 @@ class SearchForm extends Component {
     // Execute searching
     const onSearch = this.props.onSearch;
     onSearch(this.state.keyword);
-  };
+  }
 
-  handleChange = (e) => {
-    const keyword = e.target.value.substring(0,20);
+  handleChange(e) {
+    const keyword = e.target.value.substring(0, 20);
 
     this.clearTimer();
     const timer = setTimeout(() => {
@@ -43,7 +45,7 @@ class SearchForm extends Component {
       timer,
       keyword
     });
-  };
+  }
 
   clearTimer() {
     // Clear the timeout if exists
@@ -56,7 +58,6 @@ class SearchForm extends Component {
   }
 
   render() {
-    const onSearch = this.props.onSearch;
     return (
       <div className="search-form">
         <form onSubmit={this.handleSubmit}>

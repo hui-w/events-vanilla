@@ -12,28 +12,29 @@ const SearchResults = ({ results, onItemClick }) => {
         <BusyIcon />
       </div>
     );
-  } else {
-    // show results
-    return (
-      <div className="search-results">
-        <div className="search-result-header">
-          {results.length} search result{results.length > 1 && 's'}
-        </div>
-        {results.map((eventItem, index) =>
-          <div key={index} className="search-result-item clearfix">
-            <EventRow
-              year={eventItem.year} month={eventItem.month} date={eventItem.date}
-              item={eventItem} onItemClick={() => onItemClick(eventItem.id)}
-            />
-          </div>
-        )}
-      </div>
-    );
   }
+
+  // show results
+  return (
+    <div className="search-results">
+      <div className="search-result-header">
+        {results.length} search result{results.length > 1 && 's'}
+      </div>
+      {results.map((eventItem, index) =>
+        <div key={index} className="search-result-item clearfix">
+          <EventRow
+            year={eventItem.year} month={eventItem.month} date={eventItem.date}
+            item={eventItem} onItemClick={() => onItemClick(eventItem.id)}
+          />
+        </div>
+      )}
+    </div>
+  );
 };
 
 SearchResults.propTypes = {
-  results: PropTypes.array
+  results: PropTypes.array,
+  onItemClick: PropTypes.func
 };
 
 export default SearchResults;

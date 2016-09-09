@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
-import { search, startSearch, clearSearch } from '../actions/events';
+import { search, clearSearch } from '../actions/events';
 import { updatePreviousView } from '../actions/common';
 import { filterList } from '../util';
 
@@ -22,25 +22,21 @@ class SearchView extends Component {
   }
 
   componentWillUnmount() {
-    const {
-      activeYear,
-      activeMonth
-    } = this.props;
     this.props.dispatch(
       updatePreviousView('Search Results', this.props.location.pathname)
     );
   }
 
-  onFormSubmit = (keyword) => {
+  onFormSubmit(keyword) {
     browserHistory.push(`/search/${keyword}`);
-  };
+  }
 
   onItemClick(id) {
     browserHistory.push(`/event/${id}`);
-  };
+  }
 
   doSearch(keyword) {
-    if(keyword) {
+    if (keyword) {
       this.props.dispatch(search(keyword));
     } else {
       this.props.dispatch(clearSearch());
@@ -66,7 +62,9 @@ class SearchView extends Component {
 
 SearchView.propTypes = {
   results: PropTypes.array,
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  location: PropTypes.object,
+  params: PropTypes.object
 };
 
 const mapStateToProps = (state) => {
