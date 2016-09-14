@@ -7,8 +7,26 @@ export const EVENT_ITEM_CREATE = 'EVENT_ITEM_CREATE';
 export const EVENT_ITEM_UPDATE = 'EVENT_ITEM_UPDATE';
 export const EVENT_ITEM_DELETE = 'EVENT_ITEM_DELETE';
 
-function searchItem(annualEvents, id) {
-  /* eslint-disable */
+function searchItem(searchResults, annualEvents, id) {
+  const eventFinder = (item) => item.id === id;
+
+  // Find from search results
+  const itemInSearch = searchResults.find(eventFinder);
+  if (itemInSearch) {
+    return itemInSearch;
+  }
+
+  // Search in annual events
+  const years = Object.keys(annualEvents);
+  for (let i = 0; i < years.length; i++) {
+    const events = annualEvents[years[i]];
+    const itemInYear = events.find(eventFinder);
+    if (itemInYear) {
+      return itemInYear;
+    }
+  }
+
+  /* eslint-disable
   for (const year in annualEvents) {
     for (let i = 0; i < annualEvents[year].length; i++) {
       const item = annualEvents[year][i];
@@ -17,8 +35,9 @@ function searchItem(annualEvents, id) {
       }
     }
   }
+  */
+
   return null;
-  /* eslint-disable */
 }
 
 // save the data payload into the store
@@ -32,7 +51,8 @@ function receiveEventItem(eventItem) {
 export function loadEvent(id) {
   return (dispatch, getState) => {
     const annualEvents = getState().events.annualEvents;
-    const item = searchItem(annualEvents, id);
+    const searchResults = getState().events.searchResults;
+    const item = searchItem(searchResults, annualEvents, id);
     if (item != null) {
       // found in cache
       dispatch(receiveEventItem(item));

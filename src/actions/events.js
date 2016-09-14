@@ -1,7 +1,7 @@
 import api from '../api';
 
 export const ANNUAL_DATA_LOAD = 'ANNUAL_DATA_LOAD';
-export const ANNUAL_DATA_UNLOAD = 'ANNUAL_DATA_UNLOAD';
+export const CACHED_DATA_UNLOAD = 'CACHED_DATA_UNLOAD';
 export const ACTIVE_SET = 'ACTIVE_SET';
 export const SEARCH_RESULT_LOAD = 'SEARCH_RESULT_LOAD';
 
@@ -44,10 +44,10 @@ export function setActiveValue(year, month, date) {
   };
 }
 
-export function unloadAnnualData() {
+export function unloadCachedData() {
   return (dispatch) => {
     dispatch({
-      type: ANNUAL_DATA_UNLOAD
+      type: CACHED_DATA_UNLOAD
     });
   };
 }

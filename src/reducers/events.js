@@ -3,7 +3,7 @@ import update from 'react/lib/update';
 import {
   ANNUAL_DATA_LOAD,
   ACTIVE_SET,
-  ANNUAL_DATA_UNLOAD,
+  CACHED_DATA_UNLOAD,
   SEARCH_RESULT_LOAD
 } from '../actions/events';
 
@@ -45,7 +45,7 @@ const handlers = {
       }
     });
   },
-  [ANNUAL_DATA_UNLOAD]: () => ({
+  [CACHED_DATA_UNLOAD]: () => ({
     ...initialState
   }),
   [SEARCH_RESULT_LOAD]: (state, action) => ({

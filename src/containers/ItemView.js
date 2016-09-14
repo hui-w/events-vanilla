@@ -9,7 +9,7 @@ import EventItem from '../components/item/EventItem';
 
 import { loadTags, unloadTags } from '../actions/tags';
 import { loadEvent, unloadEvent, createEvent, updateEvent, deleteEvent } from '../actions/event';
-import { unloadAnnualData } from '../actions/events';
+import { unloadCachedData } from '../actions/events';
 import { resetFilters } from '../actions/common';
 
 class ItemView extends Component {
@@ -55,7 +55,7 @@ class ItemView extends Component {
     // clear the annual cache
     const onComplete = () => {
       // clear the cache
-      this.props.dispatch(unloadAnnualData());
+      this.props.dispatch(unloadCachedData());
       this.props.dispatch(unloadTags());
       this.props.dispatch(resetFilters());
 
@@ -93,7 +93,7 @@ class ItemView extends Component {
   onDelete(id) {
     const onComplete = () => {
       // clear the annual cache
-      this.props.dispatch(unloadAnnualData());
+      this.props.dispatch(unloadCachedData());
 
       // redirect
       browserHistory.push('/');
