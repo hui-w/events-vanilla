@@ -21,7 +21,9 @@ class ItemView extends Component {
     this.onDelete = this.onDelete.bind(this);
 
     this.state = {
+      // Show form or overview
       editing: false,
+      // Show or hide scrim
       changing: false,
       item: { ...props.item
       }
@@ -30,7 +32,7 @@ class ItemView extends Component {
 
   componentDidMount() {
     if (this.props.params.id) {
-      // load the item
+      // Load the item
       this.props.dispatch(loadEvent(this.props.params.id));
     } else {
       this.beginEdit();
@@ -38,11 +40,20 @@ class ItemView extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState({
-      item: {
-        ...newProps.item
-      }
-    });
+    if (this.props.params.id && !newProps.params.id) {
+      // Add button clicked on this component
+      // Clear the item and begin to edit mode
+      this.props.dispatch(unloadEvent());
+      this.beginEdit();
+    }
+
+    if (this.props.item != newProps.item) {
+      this.setState({
+        item: {
+          ...newProps.item
+        }
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -53,7 +64,7 @@ class ItemView extends Component {
   // create of update item
   onSubmit(newItem) {
     // clear the annual cache
-    const onComplete = () => {
+    const onComplete = (id) => {
       // clear the cache
       this.props.dispatch(unloadCachedData());
       this.props.dispatch(unloadTags());
@@ -63,6 +74,12 @@ class ItemView extends Component {
         editing: false,
         changing: false
       });
+
+      if (id) {
+        // When new item created, a id of new record will be called back
+        // Redirect to new created item
+        browserHistory.push(`/event/${id}`);
+      }
     };
 
     this.setState({

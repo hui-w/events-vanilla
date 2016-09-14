@@ -81,7 +81,8 @@ export function createEvent(item, onComplete) {
       });
 
       if (typeof onComplete === 'function') {
-        onComplete();
+        // When a new item created, callback with new ID
+        onComplete(newItem.id);
       }
     };
     dispatch(api.createEvent(item, callback));
@@ -97,7 +98,7 @@ export function updateEvent(item, onComplete) {
       });
 
       if (typeof onComplete === 'function') {
-        onComplete();
+        onComplete(null);
       }
     };
     dispatch(api.updateEvent(item, callback));
