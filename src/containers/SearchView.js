@@ -12,12 +12,12 @@ import SearchResults from '../components/search/SearchResults';
 
 class SearchView extends Component {
   componentDidMount() {
-    this.doSearch(this.props.params.keyword);
+    this.doSearchForParam(this.props.params.keyword);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.params !== nextProps.params) {
-      this.doSearch(nextProps.params.keyword);
+      this.doSearchForParam(nextProps.params.keyword);
     }
   }
 
@@ -35,11 +35,13 @@ class SearchView extends Component {
     browserHistory.push(`/event/${id}`);
   }
 
-  doSearch(keyword) {
-    if (keyword) {
-      this.props.dispatch(search(keyword));
-    } else {
+  doSearchForParam(keyword) {
+    if (!keyword) {
+      // Keyword cleared: clear the search result
       this.props.dispatch(clearSearch());
+    } else if (keyword != this.props.keyword) {
+      // Keyword changed: search again
+      this.props.dispatch(search(keyword));
     }
   }
 
@@ -69,8 +71,10 @@ SearchView.propTypes = {
 
 const mapStateToProps = (state) => {
   const allResults = state.events.searchResults;
+  const keyword = state.events.searchKeyword;
   const results = filterList(allResults, state.common.filters);
   return {
+    keyword,
     results
   };
 };

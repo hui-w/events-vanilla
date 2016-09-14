@@ -52,9 +52,10 @@ export function unloadCachedData() {
   };
 }
 
-function receiveSearchResult(payload) {
+function receiveSearchResult(keyword, payload) {
   return {
     type: SEARCH_RESULT_LOAD,
+    keyword,
     payload
   };
 }
@@ -66,7 +67,7 @@ export function search(keyword) {
 
     const callback = (payload) => {
       // save the search result into the store
-      dispatch(receiveSearchResult(payload));
+      dispatch(receiveSearchResult(keyword, payload));
     };
     dispatch(api.searchEvents(keyword, callback));
   };
@@ -74,5 +75,5 @@ export function search(keyword) {
 
 export function clearSearch() {
   // clear the search results
-  return receiveSearchResult([]);
+  return receiveSearchResult('', []);
 }

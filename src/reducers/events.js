@@ -15,6 +15,7 @@ const initialState = {
   months: [],
   annualEvents: {},
   tags: [],
+  searchKeyword: '',
   searchResults: []
 };
 
@@ -49,6 +50,7 @@ const handlers = {
     ...initialState
   }),
   [SEARCH_RESULT_LOAD]: (state, action) => ({
+    searchKeyword: action.keyword,
     searchResults: action.payload
   })
 };
