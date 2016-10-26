@@ -80,23 +80,6 @@ class FormView extends Component {
     }
   }
 
-  // delete item
-  onDelete(id) {
-    const onComplete = () => {
-      // clear the annual cache
-      this.props.dispatch(unloadCachedData());
-
-      // redirect
-      browserHistory.push('/');
-    };
-
-    this.setState({
-      changing: true
-    });
-
-    this.props.dispatch(deleteEvent(id, onComplete));
-  }
-
   render() {
     const id = this.props.params.id;
     const {
