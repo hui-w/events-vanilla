@@ -1,0 +1,8 @@
+.item-view .tools {
+  padding: 4px 8px;
+}
+
+.item-view .tools .button {
+    padding: 4px 14px;
+    margin-right: 14px;
+}

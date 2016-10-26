@@ -32,7 +32,7 @@ class SearchView extends Component {
   }
 
   onItemClick(id) {
-    browserHistory.push(`/event/${id}`);
+    browserHistory.push(`/view/${id}`);
   }
 
   doSearchForParam(keyword) {

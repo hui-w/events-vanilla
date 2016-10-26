@@ -47,7 +47,7 @@ class ListView extends Component {
   }
 
   onItemClick(id) {
-    browserHistory.push(`/event/${id}`);
+    browserHistory.push(`/view/${id}`);
   }
 
   setYear(year) {
@@ -99,7 +99,7 @@ class ListView extends Component {
     return (
       <div>
         <SubMenu>
-          <Link to={{ pathname: '/event/' }} className="link-button">+ New Event</Link>
+          <Link to={{ pathname: '/edit/' }} className="link-button">+ New Event</Link>
           <div className="right">
             <YearSelect
               yearList={years}

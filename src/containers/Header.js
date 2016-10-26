@@ -46,7 +46,7 @@ class Header extends Component {
               />
             </svg>
           </div>
-          <div className="svg-btn" title="New Event" onClick={() => browserHistory.push('/event/')}>
+          <div className="svg-btn" title="New Event" onClick={() => browserHistory.push('/edit/')}>
             <svg viewBox="0 0 512 512" width="28" height="28">
               <rect width="512" height="512" stroke="none" fill="#404040" />
               <polygon

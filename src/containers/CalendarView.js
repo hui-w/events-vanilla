@@ -58,7 +58,7 @@ class CalendarView extends Component {
   }
 
   onItemClick(id) {
-    browserHistory.push(`/event/${id}`);
+    browserHistory.push(`/view/${id}`);
   }
 
   setActiveDate(year, month, date) {

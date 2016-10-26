@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-
 import update from 'react/lib/update';
-
 import BusyIcon from '../../components/common/BusyIcon';
 import FlagRadio from '../../components/item/FlagRadio';
 import RecurrenceRadio from '../../components/item/RecurrenceRadio';
@@ -40,6 +38,7 @@ export default class EventForm extends Component {
 
   onSubmit(e) {
     const item = this.state.item;
+    console.log(item);
 
     // form validation
     if (item.text.length <= 0) {
@@ -255,8 +254,5 @@ export default class EventForm extends Component {
 
 EventForm.propTypes = {
   tags: PropTypes.array.isRequired,
-  item: PropTypes.object.isRequired,
-  changing: PropTypes.bool.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired
+  item: PropTypes.object.isRequired
 };

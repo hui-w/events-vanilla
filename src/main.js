@@ -9,7 +9,7 @@ import 'babel-polyfill';
 
 import * as reducers from './reducers';
 import { App } from './components';
-import { ListView, CalendarView, SearchView, ItemView, SettingsView } from './containers';
+import { ListView, CalendarView, SearchView, FormView, ItemView, SettingsView } from './containers';
 
 const middleware = [thunk];
 
@@ -36,8 +36,11 @@ ReactDOM.render(
             <Route path=":year/:month" component={ListView} />
             <Route path=":year/:month/:date" component={ListView} />
           </Route>
-          <Route path="event" component={ItemView}>
+          <Route path="view" component={ItemView}>
             <Route path=":id" component={ItemView} />
+          </Route>
+          <Route path="edit" component={FormView}>
+            <Route path=":id" component={FormView} />
           </Route>
           <Route path="search" component={SearchView}>
             <Route path=":keyword" component={ItemView} />
