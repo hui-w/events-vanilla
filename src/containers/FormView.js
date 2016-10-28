@@ -21,15 +21,36 @@ class FormView extends Component {
     this.state = {
       // Show or hide scrim
       changing: false,
-      item: { ...props.item
+      item: {
+        ...props.item
       }
     };
   }
 
   componentDidMount() {
     if (this.props.params.id) {
-      // Load the item
+      // Editing: Load the item
       this.props.dispatch(loadEvent(this.props.params.id));
+    } else {
+      // Adding: Initial year, month and date
+      const {
+        activeYear,
+        activeMonth,
+        activeDate,
+        previousView
+      } = this.props;
+      const d = new Date();
+      const year = activeYear === 0 ? d.getFullYear() : activeYear;
+      const month = activeMonth === 0 ? d.getMonth() + 1 : activeMonth;
+      const date = activeDate === 0 ? d.getDate() : activeDate;
+      this.setState({
+        item: {
+          ...this.state.item,
+          year,
+          month,
+          date
+        }
+      });
     }
   }
 
@@ -45,7 +66,6 @@ class FormView extends Component {
 
   componentWillUnmount() {
     this.props.dispatch(unloadEvent());
-    return true;
   }
 
   // create of update item
@@ -69,7 +89,6 @@ class FormView extends Component {
     };
 
     this.setState({
-      item: newItem,
       changing: true
     });
 
@@ -82,13 +101,9 @@ class FormView extends Component {
 
   render() {
     const id = this.props.params.id;
-    const {
-      activeYear,
-      activeMonth,
-      activeDate,
-      previousView
-    } = this.props;
+    const previousView = this.props.previousView;
     const item = this.state.item;
+    console.log(item);
 
     let title;
     let bodyDOM;
@@ -102,19 +117,7 @@ class FormView extends Component {
         </div>
       );
     } else {
-      if (id) {
-        // editing
-        title = 'Modify Event';
-      } else {
-        // creating
-        title = 'New Event';
-
-        // initial year, month and date
-        const date = new Date();
-        item.year = activeYear === 0 ? date.getFullYear() : activeYear;
-        item.month = activeMonth === 0 ? date.getMonth() + 1 : activeMonth;
-        item.date = activeDate === 0 ? date.getDate() : activeDate;
-      }
+      title = id ? 'Modify Event' : 'New Event';
       bodyDOM = (
         <EventForm
           item={item}

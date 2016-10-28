@@ -6,7 +6,7 @@ import SubMenu from '../components/common/SubMenu';
 import BusyIcon from '../components/common/BusyIcon';
 import EventItem from '../components/item/EventItem';
 
-import { loadEvent } from '../actions/event';
+import { loadEvent, unloadEvent, deleteEvent } from '../actions/event';
 import { unloadCachedData } from '../actions/events';
 
 import '../styles/item-view.css';
@@ -40,6 +40,10 @@ class ItemView extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.dispatch(unloadEvent());
+  }
+
   // redirect to the edit view
   onModify(id) {
     browserHistory.push(`/edit/${id}`);
@@ -68,11 +72,22 @@ class ItemView extends Component {
     const {
       previousView
     } = this.props;
-    const item = this.state.item;
+    const {
+      changing,
+      item
+    } = this.state;
+
 
     if (!item) {
       return <div style={{ margin: '15px 10px' }}><BusyIcon /></div>;
     }
+
+    const actions = changing ? <BusyIcon /> : (
+      <div>
+        <button type="button" className="button" onClick={() => this.onModify(item.id)}>Modify</button>
+        <button type="button" className="button" onClick={() => this.onDelete(item.id)}>Delete</button>
+      </div>
+    );
 
     return (
       <div>
@@ -84,8 +99,7 @@ class ItemView extends Component {
         <div className="item-view">
           <EventItem item={item} />
           <div className="tools">
-            <button type="button" className="button" onClick={() => this.onModify(item.id)}>Modify</button>
-            <button type="button" className="button" onClick={() => this.onDelete(item.id)}>Delete</button>
+            {actions}
           </div>
         </div>
       </div>

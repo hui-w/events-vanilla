@@ -27,6 +27,8 @@ export default class EventForm extends Component {
     };
   }
 
+  /*
+  // No need to handle this as this is an component renderred by FormView
   componentWillReceiveProps(newProps) {
     this.setState({
       item: {
@@ -35,10 +37,10 @@ export default class EventForm extends Component {
       error: null
     });
   }
+  */
 
   onSubmit(e) {
     const item = this.state.item;
-    console.log(item);
 
     // form validation
     if (item.text.length <= 0) {

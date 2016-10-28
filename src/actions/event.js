@@ -98,7 +98,8 @@ export function updateEvent(item, onComplete) {
       });
 
       if (typeof onComplete === 'function') {
-        onComplete(null);
+        // When a item is updated, callback with ID
+        onComplete(item.id);
       }
     };
     dispatch(api.updateEvent(item, callback));
