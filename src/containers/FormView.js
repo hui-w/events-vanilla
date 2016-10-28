@@ -101,8 +101,8 @@ class FormView extends Component {
 
   render() {
     const id = this.props.params.id;
-    const previousView = this.props.previousView;
-    const item = this.state.item;
+    const {tags, previousView} = this.props;
+    const {item, changing} = this.state;
     console.log(item);
 
     let title;
@@ -120,9 +120,9 @@ class FormView extends Component {
       title = id ? 'Modify Event' : 'New Event';
       bodyDOM = (
         <EventForm
-          item={item}
-          tags={this.props.tags}
-          changing={this.state.changing}
+          item={{...item}}
+          tags={tags}
+          changing={changing}
           onSubmit={this.onSubmit}
           onCancel={this.onCancel}
         />
