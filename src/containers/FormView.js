@@ -7,7 +7,7 @@ import BusyIcon from '../components/common/BusyIcon';
 import EventForm from '../components/item/EventForm';
 
 import { loadTags, unloadTags } from '../actions/tags';
-import { loadEvent, unloadEvent, createEvent, updateEvent } from '../actions/event';
+import { initEvent, loadEvent, unloadEvent, createEvent, updateEvent } from '../actions/event';
 import { unloadCachedData } from '../actions/events';
 import { resetFilters } from '../actions/common';
 
@@ -17,13 +17,11 @@ class FormView extends Component {
   constructor(props, context) {
     super(props, context);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onCancel = this.onCancel.bind(this);
 
     this.state = {
       // Show or hide scrim
-      changing: false,
-      item: {
-        ...props.item
-      }
+      changing: false
     };
   }
 
@@ -32,39 +30,20 @@ class FormView extends Component {
       // Editing: Load the item
       this.props.dispatch(loadEvent(this.props.params.id));
     } else {
-      // Adding: Initial year, month and date
-      const {
-        activeYear,
-        activeMonth,
-        activeDate,
-        previousView
-      } = this.props;
-      const d = new Date();
-      const year = activeYear === 0 ? d.getFullYear() : activeYear;
-      const month = activeMonth === 0 ? d.getMonth() + 1 : activeMonth;
-      const date = activeDate === 0 ? d.getDate() : activeDate;
-      this.setState({
-        item: {
-          ...this.state.item,
-          year,
-          month,
-          date
-        }
-      });
+      // Adding: Init the item
+      this.props.dispatch(initEvent(this.props));
     }
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.item != newProps.item) {
-      this.setState({
-        item: {
-          ...newProps.item
-        }
-      });
+    if (this.props.params.id && !newProps.params.id) {
+      // When changing from edit mode to add mode
+      newProps.dispatch(initEvent(newProps));
     }
   }
 
   componentWillUnmount() {
+    // Unload the item to avoid showing next time before laoding
     this.props.dispatch(unloadEvent());
   }
 
@@ -99,16 +78,23 @@ class FormView extends Component {
     }
   }
 
+  onCancel() {
+    const id = this.props.params.id;
+    if (id) {
+      // Redirect to view page
+      browserHistory.push(`/view/${id}`);
+    }
+  }
+
   render() {
     const id = this.props.params.id;
-    const {tags, previousView} = this.props;
-    const {item, changing} = this.state;
-    console.log(item);
+    const {item, tags, previousView} = this.props;
+    const {changing} = this.state;
 
     let title;
     let bodyDOM;
 
-    if (id && item.id == null) {
+    if (item.year == 0) {
       // loading
       title = 'Loading...';
       bodyDOM = (
@@ -120,7 +106,7 @@ class FormView extends Component {
       title = id ? 'Modify Event' : 'New Event';
       bodyDOM = (
         <EventForm
-          item={{...item}}
+          item={item}
           tags={tags}
           changing={changing}
           onSubmit={this.onSubmit}

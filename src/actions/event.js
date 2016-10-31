@@ -1,5 +1,6 @@
 import api from '../api';
 
+export const EVENT_ITEM_INIT = 'EVENT_ITEM_INIT';
 export const EVENT_ITEM_LOAD = 'EVENT_ITEM_LOAD';
 export const EVENT_ITEM_UNLOAD = 'EVENT_ITEM_UNLOAD';
 
@@ -69,6 +70,13 @@ export function loadEvent(id) {
 export function unloadEvent() {
   return {
     type: EVENT_ITEM_UNLOAD
+  };
+}
+
+export function initEvent(props) {
+  return {
+    type: EVENT_ITEM_INIT,
+    props
   };
 }
 

@@ -27,17 +27,17 @@ export default class EventForm extends Component {
     };
   }
 
-  /*
-  // No need to handle this as this is an component renderred by FormView
   componentWillReceiveProps(newProps) {
-    this.setState({
-      item: {
-        ...newProps.item
-      },
-      error: null
-    });
+    // Handle this only changing from editing to creating
+    if (this.props.item.id && !newProps.item.id) {
+      this.setState({
+        item: {
+          ...newProps.item
+        },
+        error: null
+      });
+    }
   }
-  */
 
   onSubmit(e) {
     const item = this.state.item;

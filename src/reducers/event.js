@@ -1,9 +1,11 @@
 import {
+  EVENT_ITEM_INIT,
   EVENT_ITEM_LOAD,
   EVENT_ITEM_UNLOAD,
   EVENT_ITEM_CREATE,
   EVENT_ITEM_UPDATE
 } from '../actions/event';
+import update from 'react/lib/update';
 
 const initialState = {
   item: {
@@ -22,11 +24,40 @@ const initialState = {
 };
 
 const handlers = {
+  [EVENT_ITEM_INIT]: (state, action) => {
+    // Initial year, month and date
+    const {
+      activeYear,
+      activeMonth,
+      activeDate,
+      previousView
+    } = action.props;
+    const d = new Date();
+    const year = activeYear === 0 ? d.getFullYear() : activeYear;
+    const month = activeMonth === 0 ? d.getMonth() + 1 : activeMonth;
+    const date = activeDate === 0 ? d.getDate() : activeDate;
+
+    return update(initialState, {
+      item: {
+        year: {
+          $set: year
+        },
+        month: {
+          $set: month
+        },
+        date: {
+          $set: date
+        }
+      }
+    });
+
+  },
+
   [EVENT_ITEM_LOAD]: (state, action) => ({
     item: action.item
   }),
 
-  [EVENT_ITEM_UNLOAD]: () => ({
+  [EVENT_ITEM_UNLOAD]: (state, action) => ({
     ...initialState
   }),
 
