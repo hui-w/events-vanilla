@@ -31,7 +31,7 @@ class ItemView extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.item != newProps.item) {
+    if (this.props.item !== newProps.item) {
       this.setState({
         item: {
           ...newProps.item
@@ -59,6 +59,7 @@ class ItemView extends Component {
       browserHistory.push('/');
     };
 
+    /* eslint-disable */
     if (window.confirm('Are you sure to delete?')) {
       this.setState({
         changing: true
@@ -66,6 +67,7 @@ class ItemView extends Component {
 
       this.props.dispatch(deleteEvent(id, onComplete));
     }
+    /* eslint-disable */
   }
 
   render() {
@@ -110,7 +112,8 @@ class ItemView extends Component {
 ItemView.propTypes = {
   item: PropTypes.object,
   previousView: PropTypes.object,
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  params: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({

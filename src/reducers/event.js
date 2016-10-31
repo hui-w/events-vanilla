@@ -1,3 +1,4 @@
+import update from 'react/lib/update';
 import {
   EVENT_ITEM_INIT,
   EVENT_ITEM_LOAD,
@@ -5,7 +6,6 @@ import {
   EVENT_ITEM_CREATE,
   EVENT_ITEM_UPDATE
 } from '../actions/event';
-import update from 'react/lib/update';
 
 const initialState = {
   item: {
@@ -29,8 +29,7 @@ const handlers = {
     const {
       activeYear,
       activeMonth,
-      activeDate,
-      previousView
+      activeDate
     } = action.props;
     const d = new Date();
     const year = activeYear === 0 ? d.getFullYear() : activeYear;
@@ -50,14 +49,13 @@ const handlers = {
         }
       }
     });
-
   },
 
   [EVENT_ITEM_LOAD]: (state, action) => ({
     item: action.item
   }),
 
-  [EVENT_ITEM_UNLOAD]: (state, action) => ({
+  [EVENT_ITEM_UNLOAD]: () => ({
     ...initialState
   }),
 

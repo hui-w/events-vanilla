@@ -6,7 +6,7 @@ import SubMenu from '../components/common/SubMenu';
 import BusyIcon from '../components/common/BusyIcon';
 import EventForm from '../components/item/EventForm';
 
-import { loadTags, unloadTags } from '../actions/tags';
+import { unloadTags } from '../actions/tags';
 import { initEvent, loadEvent, unloadEvent, createEvent, updateEvent } from '../actions/event';
 import { unloadCachedData } from '../actions/events';
 import { resetFilters } from '../actions/common';
@@ -88,13 +88,13 @@ class FormView extends Component {
 
   render() {
     const id = this.props.params.id;
-    const {item, tags, previousView} = this.props;
-    const {changing} = this.state;
+    const { item, tags, previousView } = this.props;
+    const { changing } = this.state;
 
     let title;
     let bodyDOM;
 
-    if (item.year == 0) {
+    if (item.year === 0) {
       // loading
       title = 'Loading...';
       bodyDOM = (

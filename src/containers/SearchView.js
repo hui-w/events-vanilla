@@ -39,7 +39,7 @@ class SearchView extends Component {
     if (!keyword) {
       // Keyword cleared: clear the search result
       this.props.dispatch(clearSearch());
-    } else if (keyword != this.props.keyword) {
+    } else if (keyword !== this.props.keyword) {
       // Keyword changed: search again
       this.props.dispatch(search(keyword));
     }
@@ -63,6 +63,7 @@ class SearchView extends Component {
 }
 
 SearchView.propTypes = {
+  keyword: PropTypes.string,
   results: PropTypes.array,
   dispatch: PropTypes.func,
   location: PropTypes.object,

@@ -256,5 +256,7 @@ export default class EventForm extends Component {
 
 EventForm.propTypes = {
   tags: PropTypes.array.isRequired,
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired
 };
