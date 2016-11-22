@@ -6,7 +6,7 @@ import SubMenu from '../components/common/SubMenu';
 import BusyIcon from '../components/common/BusyIcon';
 import EventForm from '../components/item/EventForm';
 
-import { unloadTags } from '../actions/tags';
+import { loadTags, unloadTags } from '../actions/tags';
 import { initEvent, loadEvent, unloadEvent, createEvent, updateEvent } from '../actions/event';
 import { unloadCachedData } from '../actions/events';
 import { resetFilters } from '../actions/common';
@@ -32,6 +32,11 @@ class FormView extends Component {
     } else {
       // Adding: Init the item
       this.props.dispatch(initEvent(this.props));
+    }
+
+    if (this.props.tags.length <= 0) {
+      // get all tags
+      this.props.dispatch(loadTags());
     }
   }
 
