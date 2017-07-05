@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import FlagLabel from '../../components/common/FlagLabel';
 import { getWeekday } from '../../util';
 import '../../styles/event-row.css';

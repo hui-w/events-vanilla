@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import FlagLabel from '../../components/common/FlagLabel';
 import { timestamp2String, getWeekday, getMonthName } from '../../util';

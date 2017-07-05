@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import DateBox from '../../components/list/DateBox';
 import { getMonthName } from '../../util';
 
